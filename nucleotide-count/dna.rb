@@ -18,14 +18,10 @@ class DNA
   end
 
   def valid_dna?(nucleotide)
-    if nucleotide =~ /[^GATC]/
-      raise ArgumentError, "This counts nucleotides in DNA, not RNA"
-    end
+    raise ArgumentError, "This counts nucleotides in DNA, not RNA" if nucleotide =~ /[^GATC]/
   end
 
   def valid_nucleotides?(nucleotide)
-    if nucleotide =~ /[^GATCU]/
-      raise ArgumentError, "This only counts nucleotides"
-    end
+    raise ArgumentError, "This only counts nucleotides" if nucleotide =~ /[^GATCU]/
   end
 end
