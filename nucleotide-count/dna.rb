@@ -1,6 +1,7 @@
 class DNA
   def initialize(sequence)
-    valid?(sequence)
+    valid_nucleotides?(sequence)
+    valid_dna?(sequence)
     @sequence = sequence
   end
 
@@ -14,11 +15,6 @@ class DNA
     counter.default = 0
     @sequence.each_char { |key| counter[key] += 1 }
     return counter
-  end
-
-  def valid?(nucleotide)
-    valid_nucleotides?(nucleotide)
-    valid_dna?(nucleotide)
   end
 
   def valid_dna?(nucleotide)
