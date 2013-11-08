@@ -5,13 +5,9 @@ end
 
 # refactor using method names to array, call each from the array on the var
 def number
-  result = zeros_if_not_10_digits(
-    remove_us_country_code(
-      to_all_digits(
-        @input_number
-      )
-    )
-  )
+  result = @input_number
+  normalize = [method(:to_all_digits), method(:remove_us_country_code), method(:zeros_if_not_10_digits)]
+  normalize.each { |method| result = method.call(result) }
   return result
 end
 
