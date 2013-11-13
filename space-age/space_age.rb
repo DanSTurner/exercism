@@ -7,7 +7,10 @@ class SpaceAge
     "mercury", 0.24084670,
     "venus",   0.61519726,
     "mars",    1.88081580,
-    "jupiter", 11.8626150
+    "jupiter", 11.8626150,
+    "saturn",  29.447498,
+    "uranus",  84.016846,
+    "neptune", 164.79132
     ]
   def initialize(seconds)
     @seconds = seconds
