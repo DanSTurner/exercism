@@ -25,26 +25,17 @@ class Meetup
 
   def create_daynames_with_dates
     weekdays_with_days_of_month = Hash.new([])
-    (1..31).each { |mday| weekdays_with_days_of_month[dayname(mday)] += [mday] if date_is_valid?(mday)}
+    (1..31).each do |day_of_month|
+      if Date.valid_date?(@year, @month, day_of_month)
+        weekdays_with_days_of_month[dayname(day_of_month)] += [day_of_month]
+      end
+    end
     return weekdays_with_days_of_month
   end
 
   def dayname(day_of_month)
-    Date.new(@year, @month, day_of_month).strftime('%A').downcase.to_sym if date_is_valid?(day_of_month)
-  end
-
-  # refactor
-  # def lastday
-  #   Date(@year, @month)
-  # end
-
-  def date_is_valid?(day_of_month)
-    begin
-      Date.new(@year, @month, day_of_month)
-      return true
-    rescue ArgumentError
-      return false
+    if Date.valid_date?(@year, @month, day_of_month)
+      Date.new(@year, @month, day_of_month).strftime('%A').downcase.to_sym
     end
   end
-
 end
