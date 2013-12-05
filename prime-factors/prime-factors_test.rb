@@ -44,7 +44,6 @@ class PrimeFactorsTest < MiniTest::Unit::TestCase
   end
 
   def test_93819012551
-    skip
     assert_equal [11, 9539, 894119], PrimeFactors.for(93819012551)
   end
 
